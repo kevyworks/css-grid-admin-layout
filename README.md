@@ -2,6 +2,6 @@
 
 This is just a sample admin layout using `css grid`
 
-(https://kevyworks.github.io/css-grid-admin-layout/preview.jpg "Preview")
+!["Preview"](https://kevyworks.github.io/css-grid-admin-layout/preview.jpg)
 
 [Demo](https://kevyworks.github.io/css-grid-admin-layout/)
