@@ -1,0 +1,285 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      
+        <style type="text/css" class="cp-pen-styles">
+            /* Vars */
+          
+            :root {
+               --app-sidebar-width: 240px;
+               --app-sidebar-min-width: 60px;
+               --app-header-height: 60px;
+               --app-padding: 1rem;
+            }
+
+            /* Base */
+
+            html,
+            body {
+               font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+                  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            }
+
+            html,
+            body,
+            .app-viewport {
+               height: 100%;
+               margin: 0;
+            }
+
+            .app-viewport.inspect * {
+               border: 1px solid red;
+            }
+
+            /* Grid Layout */
+
+            .app-viewport * {
+               position: relative;
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+            }
+
+            .app-viewport {
+               display: grid;
+               grid-template-columns: var(--app-sidebar-width) 1fr;
+               grid-template-rows: var(--app-header-height) 1fr;
+               grid-template-areas:
+                  "AppSidebar AppHeader"
+                  "AppSidebar AppMain";
+            }
+
+            .app-header {
+               grid-area: AppHeader;
+               margin-left: calc(var(--app-sidebar-width) * -1);
+               z-index: 2;
+            }
+
+            .app-nav,
+            .app-header,
+            .app-branding {
+               display: flex;
+               flex-direction: row;
+               flex-wrap: nowrap;
+               align-items: center;
+               justify-items: flex-start;
+               color: #fff;
+            }
+
+            .app-nav {
+               padding: 0 var(--app-padding);
+               flex: auto;
+            }
+
+            .app-branding {
+               width: var(--app-sidebar-width);
+               padding: 0 var(--app-padding);
+            }
+
+            .app-main {
+               grid-area: AppMain;
+               overflow-y: auto;
+               z-index: 1;
+               padding: var(--app-padding);
+            }
+
+            .app-sidebar {
+               display: grid;
+               grid-area: AppSidebar;
+               margin-top: var(--app-header-height);
+               overflow: auto;
+               z-index: 1;
+            }
+
+            .app-sidebar-menu {
+               list-style: none;
+               margin: 0;
+               padding: 0;
+               display: flex;
+               flex-direction: column;
+            }
+
+            .app-sidebar-menu > li > a {
+               display: flex;
+               flex-direction: row;
+               flex-wrap: nowrap;
+               align-items: center;
+               justify-items: start;
+               padding: 5px 0;
+            }
+
+            .app-sidebar-menu > li > a > .menu-icon {
+               margin-left: 15px;
+            }
+
+            .app-sidebar-menu > li > a > span {
+               margin-left: 10px;
+            }
+
+            /* Color / Presentation Only */
+
+            .placeholder {
+               display: block;
+               height: 1200px;
+               background: rgba(0, 0, 0, 0.05);
+            }
+
+            .placeholder:after {
+               content: " ";
+            }
+
+            .app-viewport {
+               background: #e9ecef;
+            }
+
+            .app-header,
+            .app-sidebar-header {
+               background: #202020;
+            }
+
+            .app-sidebar {
+               background: #0d28f2;
+               font-size: 15px;
+               padding: 20px 0;
+            }
+
+            .app-sidebar-menu > li > a {
+               text-decoration: none;
+               color: #fff;
+               opacity: 0.5;
+            }
+
+            .app-sidebar-menu > li.active > a,
+            .app-sidebar-menu > li > a:hover {
+               opacity: 1;
+            }
+
+            .app-icon {
+               font-size: 28px;
+               margin-right: 5px;
+               font-weight: 500;
+            }
+
+            .app-brand {
+               font-size: 130%;
+               font-weight: 500;
+               line-height: 1.2rem;
+            }
+
+            .app-nav-toggle,
+            .app-brand {
+               color: #fff;
+            }
+
+            /* Responsive */
+
+            @media screen and (max-width: 768px) {
+               .app-viewport {
+                  grid-template-columns: var(--app-sidebar-min-width) 1fr;
+               }
+
+               .app-header {
+                  margin-left: calc(var(--app-sidebar-min-width) * -1);
+               }
+
+               .app-icon {
+                  font-size: 36px;
+                  margin: 0;
+               }
+
+               .app-branding {
+                  width: var(--app-sidebar-min-width);
+                  padding: 0;
+                  justify-content: center;
+               }
+
+               .app-brand {
+                  display: none;
+               }
+
+               .app-sidebar-menu > li {
+                  width: var(--app-sidebar-min-width);
+               }
+
+               .app-sidebar-menu > li > a {
+                  display: block;
+                  text-align: center;
+               }
+
+               .app-sidebar-menu > li > a > span {
+                  display: none;
+               }
+
+               .app-sidebar-menu > li > a > .menu-icon {
+                  margin: 0;
+                  padding: 0;
+                  font-size: 30px;
+               }
+            }
+        </style>
+    </head>
+    
+  <body>
+    
+    <!-- app-viewport -->
+    <div class="app-viewport inspect_">
+      
+      <!-- app-header -->
+      <div class="app-header">
+        <div class="app-branding">
+           <i class="material-icons app-icon">change_history</i>
+           <h1 class="app-brand">Backend</h1>
+        </div>
+        <div class="app-nav">
+           <p>Navigation</p>
+        </div>
+      </div> 
+      <!-- end app-header -->
+      
+      <!-- app-main -->
+      <div class="app-main">
+        <div class="placeholder"></div>
+      </div> 
+      <!-- end app-main -->
+      
+      <!-- app-sidebar -->
+      <div class="app-sidebar">
+
+        <ul class="app-sidebar-menu">
+           <li class="active">
+              <a href="#">
+                <i class="material-icons menu-icon">explore</i>
+                <span>Dashboard</span>
+             </a>
+           </li>
+           <li>
+              <a href="#">
+                <i class="material-icons menu-icon">payment</i>
+                <span>Bills &amp; Payments</span>
+             </a>
+           </li>
+           <li>
+              <a href="#">
+                <i class="material-icons menu-icon">supervised_user_circle</i>
+                <span>Customers</span>
+             </a>
+           </li>
+           <li>
+              <a href="#">
+                <i class="material-icons menu-icon">error_outline</i>
+                <span>Server Logs</span>
+             </a>
+           </li>
+        </ul>
+        
+      </div> 
+      <!-- app-sidebar -->
+      
+    </div>
+    <!-- end app-viewport -->
+    
+  </body>
+    
+</html>
